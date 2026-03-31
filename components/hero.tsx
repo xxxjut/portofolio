@@ -92,13 +92,13 @@ export function Hero() {
           {/* MAIN HUGE TEXT */}
           <motion.h1 
             variants={textVariants}
-            className="text-[15vw] md:text-[12vw] font-bold tracking-tighter text-white/90 uppercase text-center select-none"
+            className="text-[11vw] md:text-[9vw] font-light tracking-widest text-white uppercase text-center select-none flex flex-col items-center leading-tight"
             style={{ 
-              textShadow: '0 0 50px rgba(0,0,0,0.5)',
-              mixBlendMode: 'overlay' 
+              textShadow: '0 10px 50px rgba(0,0,0,0.8)'
             }}
           >
-            Rizwan herlan z
+            <span>RIZWAN HERLAN</span>
+            <span className="text-[8vw] md:text-[6vw] font-bold tracking-[0.4em] mt-2 opacity-90 ml-4">ZAILANI</span>
           </motion.h1>
         </div>
 

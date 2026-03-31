@@ -37,7 +37,7 @@ export function About() {
           >
             <div className="relative w-full h-full grayscale brightness-90 contrast-110">
               <Image 
-                src="/images/profile.png" 
+                src="/images/profile-2.jpg" 
                 alt="Profile Rizwan Herlan Z" 
                 fill 
                 className="object-cover hover:scale-105 transition-all duration-1000"
