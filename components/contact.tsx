@@ -14,9 +14,28 @@ export function Contact() {
     e.preventDefault();
     setIsLoading(true);
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      setStatus('success');
-      setFormData({ name: '', phone: '', email: '', message: '' });
+      const response = await fetch("https://formsubmit.co/ajax/neverdierhz@gmail.com", {
+        method: "POST",
+        headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+            name: formData.name,
+            phone: formData.phone,
+            email: formData.email,
+            message: formData.message,
+            _subject: "New Contact Message from Portofolio",
+            _template: "table"
+        })
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setFormData({ name: '', phone: '', email: '', message: '' });
+      } else {
+        setStatus('error');
+      }
       setTimeout(() => setStatus('idle'), 3000);
     } catch {
       setStatus('error');
@@ -51,11 +70,11 @@ export function Contact() {
             <div className="space-y-8">
               <div>
                 <h3 className="text-[10px] font-bold tracking-[0.3em] uppercase text-white mb-2">Adress</h3>
-                <p className="text-muted-foreground text-xs uppercase">Hatay/Iskenderun 533/1 sok-No:14</p>
+                <p className="text-muted-foreground text-xs uppercase">jln kopo bandung no 315</p>
               </div>
               <div>
                 <h3 className="text-[10px] font-bold tracking-[0.3em] uppercase text-white mb-2">E-mail</h3>
-                <p className="text-muted-foreground text-xs lowercase">harunbegan@gmail.com</p>
+                <p className="text-muted-foreground text-xs lowercase">neverdierhz@gmail.com</p>
               </div>
             </div>
           </motion.div>

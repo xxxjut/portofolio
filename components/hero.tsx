@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import { ThreeScene } from './three-scene';
 
 export function Hero() {
   const containerVariants = {
@@ -36,7 +37,7 @@ export function Hero() {
   return (
     <section className="relative h-screen min-h-[700px] w-full bg-black overflow-hidden flex items-center justify-center">
       {/* Cinematic Background Image */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 opacity-20 transition-opacity duration-1000">
         <Image
           src="/images/hero-main.png"
           alt="Artistic Portrait"
@@ -46,6 +47,10 @@ export function Hero() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
         <div className="bg-noise absolute inset-0 opacity-[0.03] pointer-events-none" />
+      </div>
+
+      <div className="absolute inset-0 z-0">
+        <ThreeScene />
       </div>
 
       <motion.div

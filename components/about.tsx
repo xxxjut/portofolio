@@ -54,7 +54,7 @@ export function About() {
             viewport={{ once: true }}
           >
             <p className="text-xl md:text-2xl font-light leading-relaxed uppercase tracking-wide text-muted-foreground/80">
-              SAYA ADALAH SEORANG PENGEMBANG FRONTEND YANG BERSEMANGAT DALAM MENCIPTAKAN PENGALAMAN WEB YANG INDAH DAN BERKINERJA TINGGI.
+              Saya adalah pengembang pemula yang gigih ingin jauh lebih tau bangaimana sih dunia domino nya dunia Teknologi 
             </p>
           </motion.div>
 

@@ -4,10 +4,10 @@ import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
 
 const socialLinks = [
-  { icon: Github, href: '#', label: 'GitHub' },
+  { icon: Github, href: '#', label: 'instagram' },
   { icon: Linkedin, href: '#', label: 'LinkedIn' },
   { icon: Twitter, href: '#', label: 'Twitter' },
-  { icon: Mail, href: 'mailto:hello@example.com', label: 'Email' },
+  { icon: Mail, href: 'neverdierhz:@gmail.com', label: 'Email' },
 ];
 
 export function Footer() {
