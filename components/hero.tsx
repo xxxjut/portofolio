@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ThreeScene } from './three-scene';
+import GhostCursor from './ghost-cursor';
+import TextType from './text-type';
 
 export function Hero() {
   const containerVariants = {
@@ -26,10 +28,10 @@ export function Hero() {
   };
 
   const textVariants = {
-    hidden: { opacity: 0, scale: 0.95 },
+    hidden: { opacity: 0, x: -50 },
     visible: {
       opacity: 1,
-      scale: 1,
+      x: 0,
       transition: { duration: 1.5, ease: [0.16, 1, 0.3, 1] as any },
     },
   };
@@ -52,6 +54,15 @@ export function Hero() {
       <div className="absolute inset-0 z-0">
         <ThreeScene />
       </div>
+
+      {/* Ghost Cursor Effect behind the text */}
+      <GhostCursor 
+        color="#ffffff" 
+        zIndex={5} 
+        bloomStrength={0.4} 
+        trailLength={30} 
+        brightness={1.5}
+      />
 
       <motion.div
         variants={containerVariants}
@@ -83,11 +94,11 @@ export function Hero() {
         </div>
 
         {/* Central Content */}
-        <div className="relative w-full flex flex-col md:flex-row items-center justify-center">
+        <div className="relative w-full flex flex-col items-start justify-center">
           {/* Left Description (Small) */}
           <motion.div 
             variants={itemVariants}
-            className="absolute left-0 top-1/2 -translate-y-1/2 hidden lg:block max-w-[240px]"
+            className="mb-8 hidden lg:block max-w-[340px]"
           >
             <p className="text-[10px] font-bold tracking-widest uppercase text-white/50 leading-loose">
               Black is the darkest color, the result of the absence or complete absorption of visible light.
@@ -97,13 +108,25 @@ export function Hero() {
           {/* MAIN HUGE TEXT */}
           <motion.h1 
             variants={textVariants}
-            className="text-[11vw] md:text-[9vw] font-light tracking-widest text-white uppercase text-center select-none flex flex-col items-center leading-tight"
+            className="text-[8vw] md:text-[5.5vw] tracking-widest text-white uppercase text-left select-none flex flex-col items-start leading-[1.1]"
             style={{ 
-              textShadow: '0 10px 50px rgba(0,0,0,0.8)'
+              textShadow: '0 5px 30px rgba(0,0,0,0.5)'
             }}
           >
-            <span>RIZWAN HERLAN</span>
-            <span className="text-[8vw] md:text-[6vw] font-bold tracking-[0.4em] mt-2 opacity-90 ml-4">ZAILANI</span>
+            <TextType 
+              text="RIZWAN HERLAN" 
+              className="font-medium relative z-20" 
+              typingSpeed={100}
+              cursorCharacter="_"
+              cursorClassName="text-white/30"
+            />
+            <TextType 
+              text="ZAILANI" 
+              className="text-[6vw] md:text-[4vw] font-light tracking-[0.5em] mt-2 opacity-60 relative z-20" 
+              typingSpeed={120}
+              initialDelay={1500}
+              cursorCharacter=""
+            />
           </motion.h1>
         </div>
 

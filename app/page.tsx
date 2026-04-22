@@ -9,9 +9,13 @@ import { Projects } from '@/components/project';
 import { Experience } from '@/components/experience';
 import { Contact } from '@/components/contact';
 import { Footer } from '@/components/footer';
+import { AnimatePresence, motion } from 'framer-motion';
+import StarLoader from '@/components/star-loader';
 
 export default function Home() {
   const [isDark, setIsDark] = useState(false);
+
+  const [isLoading, setIsLoading] = useState(true);
 
   // Initialize dark mode from localStorage or system preference
   useEffect(() => {
@@ -21,6 +25,13 @@ export default function Home() {
 
     setIsDark(shouldBeDark);
     updateDarkMode(shouldBeDark);
+
+    // Show loader for at least 2 seconds
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
   }, []);
 
   const updateDarkMode = (isDarkMode: boolean) => {
@@ -40,18 +51,39 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <Navbar isDark={isDark} setIsDark={handleToggleDarkMode} />
+      <AnimatePresence mode="wait">
+        {isLoading ? (
+          <motion.div
+            key="loader"
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            className="fixed inset-0 z-[9999] flex items-center justify-center bg-background"
+          >
+            <StarLoader />
+          </motion.div>
+        ) : (
+          <motion.div
+            key="content"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+          >
+            <Navbar isDark={isDark} setIsDark={handleToggleDarkMode} />
 
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Experience />
-        <Contact />
-      </main>
+            <main>
+              <Hero />
+              <About />
+              <Skills />
+              <Projects />
+              <Experience />
+              <Contact />
+            </main>
 
-      <Footer />
+            <Footer />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

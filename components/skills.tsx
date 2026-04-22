@@ -12,7 +12,7 @@ const skillsData = [
     category: 'UI & Desain',
     skills: ['Figma', 'Desain Responsif', 'Aksesibilitas (A11y)', 'Prinsip UI/UX', 'Sistem Desain'],
   },
-  {
+  { 
     category: 'Alat & Platform',
     skills: ['Git', 'GitHub', 'Vercel', 'VS Code', 'Chrome DevTools'],
   },
