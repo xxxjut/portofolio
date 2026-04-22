@@ -29,7 +29,6 @@ function AbstractShape() {
           fillMix={0.1}
           fillOpacity={0.2}
           strokeOpacity={0.3}
-          blendFunction={THREE.AdditiveBlending}
         />
       </mesh>
     </Float>
