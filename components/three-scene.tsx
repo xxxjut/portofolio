@@ -20,13 +20,12 @@ function AbstractShape() {
       <mesh ref={meshRef} scale={1.5}>
         <icosahedronGeometry args={[1, 1]} />
         <meshStandardMaterial 
-          color="#111111" 
+          color="#ffffff" 
           roughness={0.2} 
           metalness={0.8}
         />
         <Wireframe 
           thickness={0.015} 
-          color="#ffffff" 
           fillMix={0.1}
           fillOpacity={0.2}
           strokeOpacity={0.3}
